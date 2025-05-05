@@ -138,14 +138,14 @@
       font-size: xx-large;
     }
     .congrats-message {
-      font-size: 16px;
+      font-size: 1.5em;
       color: #fff;
       background-color: #ff69b4;
       opacity: 80%;
       padding: 20px;
       margin: 10px auto;
       border-radius: 15px;
-      width: 90%;
+      width: 60%;
       max-width: 600px;
       display: none; /* Initially hidden */
     }
@@ -173,7 +173,8 @@
     </div>
     <div class="congrats-message" id="congratsMessage">
       Congrats, you've completed 18 years! 🎉
-      
+    </div> 
+   
     <p class="message" id="bdayMsg">
       Tu jab se aayi hai, ghar mein roshni si chha gayi,<br>
       Tere hansi se har ek subah khushbu ban gayi.<br><br>
@@ -185,23 +186,22 @@
       Teri har khushi puri ho, har sapna sach ho tere.<br><br>
       Zindagi mein kabhi akeli na rehna tu,<br>
       Tera bhai hamesha tere saath hai, chahe jo bhi ho dhoop ya dhu.<br><br>
-      💖 Happy Birthday Diyu Bache! Tu hamesha khush rahe, bas yahi chahata hoon main. 🌸
+      💖 Happy Birthday Diyu Bache! Tu hamesha khush rahe, bas yahi chahata hoon main. 🌸 <br>
+      <img src="spotifycode.jpg" alt="Birthday Image" style="width: 80%; max-width: 400px; border:5px solid#000;border-radius: 20px; margin-top: 20px;"/>
     </p>
-    <img src="spotifycode.jpg" alt="Birthday Image" style="width: 80%; max-width: 400px; border:5px solid#000;border-radius: 20px; margin-top: 20px;"/>
-  </div> 
+  
     <button class="btn" onclick="location.href='surprise.html'">🎁 View Photo GIFs</button>
   </div>
 
   <div class="confetti" id="confetti"></div>
 
   <!-- 🎵 Add birthday music audio -->
-  <audio id="bdayMusic" src="birthday.mp3"></audio>
+  <audio id="birthdayAudio" src="birthday.mp3"></audio>
 
   <script>
     const cakeSection = document.getElementById('cake-section');
     const bdayMsg = document.getElementById('bdayMsg');
     const confettiContainer = document.getElementById("confetti");
-    const audio = new Audio('my_audio.mp3'); 
     
     function blowOut() {
       // Hide flames
@@ -218,8 +218,12 @@
       }, 500);
       
       // Play birthday song
-      if (audio) audio.play();
-
+      const audio = document.getElementById('birthdayAudio');
+      if (audio) {
+        audio.play().catch((error) => {
+          console.warn("Audio playback failed:", error);
+        });
+      }
       // Show and generate confetti
       confettiContainer.style.display = "block";
       for (let i = 0; i < 100; i++) {
@@ -238,5 +242,6 @@
       }, 500);
     }
   </script>
+
 </body>
 </html>
