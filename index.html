@@ -137,7 +137,19 @@
       justify-content: center;
       font-size: xx-large;
     }
-
+    .congrats-message {
+      font-size: 1.5em;
+      color: #fff;
+      background-color: #ff69b4;
+      opacity: 80%;
+      padding: 20px;
+      margin: 10px auto;
+      border-radius: 15px;
+      width: 60%;
+      max-width: 600px;
+      display: none; /* Initially hidden */
+    }
+    
     @keyframes fall {
       0% { transform: translateY(-10vh) rotate(0deg); }
       100% { transform: translateY(110vh) rotate(360deg); }
@@ -159,7 +171,9 @@
       </div>
       <button class="btn" onclick="blowOut()">🎂 Blow Out Candles</button>
     </div>
-
+    <div class="congrats-message" id="congratsMessage">
+      Congrats, you've completed 18 years! 🎉
+    </div>    
     <p class="message" id="bdayMsg">
       Tu jab se aayi hai, ghar mein roshni si chha gayi,<br>
       Tere hansi se har ek subah khushbu ban gayi.<br><br>
@@ -194,7 +208,8 @@
 
       // Show message
       bdayMsg.style.display = "block";
-
+      const congratsMessage = document.getElementById('congratsMessage');
+      congratsMessage.style.display = 'block';
       // Play birthday song
       if (audio) audio.play();
 
