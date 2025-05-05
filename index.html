@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday</title>
   <style>
     body {
-        height: auto;
       margin: 0;
       padding: 0;
       font-family: 'Comic Sans MS';
@@ -17,7 +16,6 @@
     }
 
     .container {
-        height: auto;
       padding: 50px 20px;
       z-index: 2;
       position: relative;
@@ -30,7 +28,7 @@
     }
 
     h1:hover {
-        color: #ff69b4;
+      color: #ff69b4;
     }
 
     .photo {
@@ -43,29 +41,31 @@
     }
 
     .cake {
-        margin-top: auto;
-        margin-left: auto;
-        margin-right: auto;
-        position: relative;
-        width: 200px;
-        height: 200px;
-        background: pink;
-        border-radius: 10px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      margin: auto;
+      position: relative;
+      width: 200px;
+      height: 100px;
+      background: brown;
+      border-top: 7px solid;
+      border-color: #fff;
+      border-radius: 20px;
+      border-top-right-radius: 60px;
+      border-top-left-radius: 60px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
     }
 
     .candle {
       position: absolute;
       width: 10px;
-      height: 40px;
+      height: 55px;
       background: #ff69b4;
       top: -50px;
-      border-radius: 2px;
+      border-radius: 5px;
     }
 
-    .candle:nth-child(1) { left: 40px; }
-    .candle:nth-child(2) { left: 90px; }
-    .candle:nth-child(3) { left: 140px; }
+    .candle:nth-child(1) { left: 45px; }
+    .candle:nth-child(2) { left: 95px; }
+    .candle:nth-child(3) { left: 145px; }
 
     .flame {
       width: 10px;
@@ -85,16 +85,16 @@
     }
 
     .btn {
-        margin-top: 30px;
-        padding: 15px 30px;
-        font-size: 1.1em;
-        background-color: #ff69b4;
-        color: white;
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        transition: transform 0.2s;
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
     }
 
     .btn:hover {
@@ -102,17 +102,17 @@
     }
 
     .message {
-      font-size: 1.2em;
+      font-size: 1.0em;
       margin: 1em auto;
       max-width: 600px;
-      background-color: rgba(0, 0, 0, 0.192);
+      background-color: rgba(0, 0, 0, 0.2);
       padding: 20px;
       border-radius: 15px;
       display: none;
     }
 
     .confetti {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
@@ -120,6 +120,7 @@
       pointer-events: none;
       overflow: hidden;
       z-index: 1;
+      display: none;
     }
 
     .confetti-piece {
@@ -130,15 +131,17 @@
       animation: fall 5s linear infinite;
     }
 
-    @keyframes fall {
-      0% {
-        transform: translateY(-10vh) rotate(0deg);
-      }
-      100% {
-        transform: translateY(110vh) rotate(360deg);
-      }
+    .cake-number{
+      margin-top: auto;
+      align-items: center;
+      justify-content: center;
+      font-size: xx-large;
     }
 
+    @keyframes fall {
+      0% { transform: translateY(-10vh) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
+    }
   </style>
 </head>
 <body>
@@ -148,43 +151,36 @@
     <img src="DIYUBACHE.jpeg" alt="Birthday Girl" class="photo" />
 
     <div id="cake-section">
-        <div class="cake">
-          <div class="candle">
-            <div class="flame"></div>
-          </div>
-          <div class="candle">
-            <div class="flame"></div>
-          </div>
-          <div class="candle">
-            <div class="flame"></div>
-          </div>
-        </div>
-        <button class="btn" onclick="blowOut()">🎂 Blow Out Candles</button>
+      <div class="cake">
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="cake-number"> Happy <br> 18th </div>
       </div>
-      
+      <button class="btn" onclick="blowOut()">🎂 Blow Out Candles</button>
+    </div>
+
     <p class="message" id="bdayMsg">
-        Tu jab se aayi hai,ghar mein roshni si chha gayi,<br>
-        Tere hansi se har ek subah khushbu ban gayi.<br>
-        <br>
-        Maa ke liye tu laadli hai, Papa ke liye gurur,<br>
-        Aur mere liye tu meri sabse pyari dosti ka noor.<br>
-        <br>
-        Jab tu roti hai, dil mera udas ho jaata hai,<br>
-        Aur jab tu hansti hai, sab kuch accha lagta hai.<br>
-        <br>
-        Janamdin par bas yeh dua hai dil se mere,<br>
-        Teri har khushi puri ho, har sapna sach ho tere.<br>
-        <br>
-        Zindagi mein kabhi akeli na rehna tu,<br>
-        Tera bhai hamesha tere saath hai, chahe jo bhi ho dhoop ya dhu.<br>
-        <br>
-        💖 Happy Birthday Diyu Bache!
-        Tu hamesha khush rahe, bas yahi chahata hoon main. 🌸
+      Tu jab se aayi hai, ghar mein roshni si chha gayi,<br>
+      Tere hansi se har ek subah khushbu ban gayi.<br><br>
+      Maa ke liye tu laadli hai, Papa ke liye gurur,<br>
+      Aur mere liye tu meri sabse pyari dosti ka noor.<br><br>
+      Jab tu roti hai, dil mera udas ho jaata hai,<br>
+      Aur jab tu hansti hai, sab kuch accha lagta hai.<br><br>
+      Janamdin par bas yeh dua hai dil se mere,<br>
+      Teri har khushi puri ho, har sapna sach ho tere.<br><br>
+      Zindagi mein kabhi akeli na rehna tu,<br>
+      Tera bhai hamesha tere saath hai, chahe jo bhi ho dhoop ya dhu.<br><br>
+      💖 Happy Birthday Diyu Bache! Tu hamesha khush rahe, bas yahi chahata hoon main. 🌸
     </p>
+
     <button class="btn" onclick="location.href='surprise.html'">🎁 View Photo GIFs</button>
   </div>
 
   <div class="confetti" id="confetti"></div>
+
+  <!-- 🎵 Add birthday music audio -->
+  <audio id="bdayMusic" src="birthday.mp3"></audio>
 
   <script>
     const cakeSection = document.getElementById('cake-section');
@@ -193,30 +189,28 @@
     const audio = document.getElementById('bdayMusic');
 
     function blowOut() {
-      // Hide the flames (candles are blown out)
-      const flames = document.querySelectorAll('.flame');
-      flames.forEach(f => f.style.display = 'none');
+      // Hide flames
+      document.querySelectorAll('.flame').forEach(f => f.style.display = 'none');
 
-      // Show the birthday message
+      // Show message
       bdayMsg.style.display = "block";
-      
-      // Play the birthday music
-      audio.play();
 
-      // Trigger confetti animation
+      // Play birthday song
+      if (audio) audio.play();
+
+      // Show and generate confetti
       confettiContainer.style.display = "block";
-
-      // Generate confetti pieces
       for (let i = 0; i < 100; i++) {
         const confetti = document.createElement("div");
         confetti.classList.add("confetti-piece");
         confetti.style.left = Math.random() * 100 + "vw";
-        confetti.style.animationDelay = Math.random() * 5 + "s";
+        confetti.style.top = Math.random() * -20 + "vh";
+        confetti.style.animationDelay = Math.random() * 3 + "s";
         confetti.style.backgroundColor = ['#ff69b4', '#ffc0cb', '#ffe4e1', '#ffb6c1'][Math.floor(Math.random() * 4)];
         confettiContainer.appendChild(confetti);
       }
 
-      // Hide cake section
+      // Hide cake after 1 second
       setTimeout(() => {
         cakeSection.style.display = 'none';
       }, 1000);
